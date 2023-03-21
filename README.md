@@ -1,0 +1,2 @@
+# DisNotion
+Discord -- Notion Sync
