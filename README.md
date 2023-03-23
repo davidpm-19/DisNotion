@@ -48,4 +48,4 @@ If the script stops all variables will reset so the first check will consider ev
 
 ## Future Changes and Tools
 
-This toll is still in development, the final version will include more tools, checks, a way to store data persistently, and optimitzation, please be patient while the rest of the features are developed.
+This tool is still in development, the final version will include more tools, checks, a way to store data persistently, and optimitzation, please be patient while the rest of the features are developed.
