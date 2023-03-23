@@ -1,35 +1,34 @@
-import os
 import time
 from notion_client import Client
-from discord_webhook import DiscordWebhook, DiscordEmbed
+from discord_webhook import DiscordWebhook
 
-# Array to save configuration values
-confVar = []
 
-# Reading of confiiguration file
-with open('fileConf.txt', 'r') as f:
-    lines = f.readlines()
+def conf_import():
+    config = []
+    with open('fileConf.txt', 'r') as f:
+        lines = f.readlines()
 
-# Import the file values to the array
-for line in lines:
-    line = line.strip()  # remove any leading or trailing whitespace
-    if line:  # check if the line is not empty
-        key, value = line.split(' : ')
-        confVar.append(value)
+    for line in lines:
+        line = line.strip()  # remove any leading or trailing whitespace
+        if line:  # check if the line is not empty
+            key, value = line.split(' : ')
+            config.append(value)
+    return config
 
-# Notion connection
-notion = Client(auth=confVar[0])
-database_id = confVar[1]
-database = notion.databases.retrieve(database_id)
 
-# Discord Webhook
-webhook_url = confVar[2]  # Replace this with the URL of your Discord webhook
-webhook = DiscordWebhook(url=webhook_url)
+def connection():
+    # Notion connection
+    notion = Client(auth=conf_list[0])
+    database_id = conf_list[1]
 
-# Control dictionaries
-last_edited_times = {}
-last_edited_statuses = {}
-while True:
+    # Discord Webhook
+    webhook_url = conf_list[2]  # Replace this with the URL of your Discord webhook
+    webhook = DiscordWebhook(url=webhook_url)
+    return notion, database_id, webhook
+
+
+def discord_notion():
+    notion, database_id, webhook = connection()
     # Query to get database elements
     results = notion.databases.query(
         **{
@@ -60,4 +59,14 @@ while True:
             # Update the values of dictionaries to the last ones
             last_edited_times[item_id] = item["last_edited_time"]
             last_edited_statuses[item_id] = entry_status
+
+
+# Control dictionaries
+last_edited_times = {}
+last_edited_statuses = {}
+
+conf_list = conf_import()
+connection()
+while True:
+    discord_notion()
     time.sleep(10)
