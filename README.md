@@ -1,5 +1,8 @@
 
 # DisNotion
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
+![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)
 
 DisNotion is a python script that connects a Notion database to a Discord channel and sends simple notifications when changes are made to the database.
 
