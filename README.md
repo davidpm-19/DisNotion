@@ -1,6 +1,7 @@
 
 # DisNotion
 [![Known Vulnerabilities](https://snyk.io/test/github/davidpm-19/DisNotion/badge.svg)](https://snyk.io/test/github/davidpm-19/DisNotion/badge.svg)
+[![CodeFactor](https://www.codefactor.io/repository/github/davidpm-19/disnotion/badge)](https://www.codefactor.io/repository/github/davidpm-19/disnotion)
 ![Python 3.10](https://img.shields.io/badge/python-3.10-green.svg)
 
 ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
