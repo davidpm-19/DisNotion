@@ -4,8 +4,13 @@ from discord_webhook import DiscordWebhook
 
 
 def conf_import():
+    config = []
     with open('fileConf.txt', 'r') as f:
-        return [line.split(' : ')[1] for line in f]
+        for line in f:
+            if line := line.strip():
+                key, value = line.split(' : ')
+                config.append(value)
+    return config
 
 
 def connection():
